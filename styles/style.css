@@ -1,0 +1,284 @@
+/* styles/style.css */
+:root {
+    /* Color principal cambiado a ROJO como solicitaste */
+    --primary-color: #D32F2F; 
+    --primary-dark: #B71C1C;
+    --text-black: #333333;
+    --text-grey: #666666;
+    --bg-card: #ffffff;
+    --focus-shadow: rgba(211, 47, 47, 0.25); /* Sombra roja al enfocar */
+    --input-border: #ccc;
+}
+
+/* Reset básico */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow-x: hidden;
+    color: var(--text-black);
+}
+
+/* --- FONDO ANIMADO Y OSCURO --- */
+body::before {
+    content: "";
+    position: absolute;
+    top: -5%;
+    left: -5%;
+    width: 110%;
+    height: 110%;
+    /* CAMBIA 'fondo.jpg' POR EL NOMBRE EXACTO DE TU IMAGEN */
+    background-image: url('../images/fondo.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -2;
+    /* Animación de zoom suave */
+    animation: zoomBackground 25s infinite alternate ease-in-out;
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Capa oscura para que el texto resalte sobre la foto de gente */
+    background: rgba(0, 0, 0, 0.45); 
+    z-index: -1;
+}
+
+@keyframes zoomBackground {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.15); }
+}
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.container {
+    background-color: var(--bg-card);
+    width: 100%;
+    max-width: 440px; /* Ancho estándar de formularios bancarios */
+    padding: 45px 40px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    border-radius: 8px;
+    position: relative;
+    z-index: 10;
+    animation: slideUp 0.6s ease-out;
+    margin: 20px;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- HEADER Y LINKS --- */
+.header-top {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 25px;
+    font-size: 13px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 15px;
+}
+
+.header-top a {
+    color: var(--text-grey);
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.header-top a:hover {
+    color: var(--primary-color); /* Rojo al pasar el mouse */
+    text-decoration: underline;
+}
+
+/* --- LOGO --- */
+.logo-container {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.logo-container img {
+    max-width: 220px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* --- TÍTULO --- */
+h1 {
+    color: var(--primary-color); /* TÍTULO EN ROJO */
+    font-size: 22px;
+    text-align: center;
+    margin: 0 0 30px 0;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+/* --- FORMULARIO --- */
+.form-group {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    font-size: 13px;
+    color: var(--text-black);
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--input-border);
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background-color: #fff;
+    color: var(--text-black);
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px var(--focus-shadow);
+}
+
+/* --- TECLADO EN PANTALLA (Simulado) --- */
+.virtual-keyboard-wrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.virtual-keyboard-btn {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    color: var(--primary-color); /* Botón en ROJO */
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+.virtual-keyboard-btn:hover {
+    color: var(--primary-dark);
+}
+
+.virtual-keyboard-btn svg {
+    width: 18px;
+    height: 18px;
+    margin-right: 6px;
+    fill: var(--primary-color);
+}
+
+/* --- CHECKBOX --- */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    margin-bottom: 20px;
+    color: var(--text-black);
+}
+
+.checkbox-group input {
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
+/* --- BOTÓN PRINCIPAL --- */
+.btn-ingresar {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--primary-color); /* BOTÓN EN ROJO */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-ingresar:hover {
+    background-color: var(--primary-dark);
+}
+
+/* --- ENLACES DE AYUDA --- */
+.help-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.help-links a {
+    color: var(--primary-color); /* ENLACES EN ROJO */
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.help-links a:hover {
+    text-decoration: underline;
+    color: var(--primary-dark);
+}
+
+/* --- FOOTER --- */
+.footer {
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    text-align: center;
+    font-size: 11px;
+}
+
+.footer p {
+    margin: 5px 0;
+    color: var(--text-grey);
+}
+
+.footer a {
+    color: var(--primary-color); /* +INFO EN ROJO */
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.security-notice {
+    margin-top: 10px;
+    font-size: 10px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Ocultar honeypot */
+.honey-pot {
+    display: none;
+}
